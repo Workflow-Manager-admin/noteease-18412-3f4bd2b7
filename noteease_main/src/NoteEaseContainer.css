@@ -1,0 +1,320 @@
+:root {
+  --noteease-primary: #4A90E2;
+  --noteease-secondary: #FFFFFF;
+  --noteease-accent: #F5A623;
+  --noteease-bg: #f6faff;
+  --noteease-text: #222;
+  --noteease-muted: #888;
+}
+
+.noteease-outer {
+  background: var(--noteease-bg);
+  min-height: 100vh;
+  color: var(--noteease-text);
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+
+.noteease-header {
+  background: var(--noteease-primary);
+  color: #fff;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 2px 10px rgba(60,110,210,0.06);
+}
+
+.noteease-logo {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.noteease-search {
+  margin-left: auto;
+  background: #fff;
+  color: var(--noteease-text);
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  padding: 8px 14px;
+  min-width: 240px;
+  box-shadow: 0 2px 4px rgba(70,120,180,0.03);
+  outline: none;
+  transition: border 0.18s;
+}
+.noteease-search:focus {
+  border-color: var(--noteease-primary);
+}
+
+.noteease-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 32px 10px 32px;
+  padding-bottom: 4px;
+}
+
+.noteease-chip {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1.1px solid #d6e4f5;
+  background: #f8f8f8;
+  color: var(--noteease-primary);
+  border-radius: 16px;
+  padding: 6px 18px;
+  outline: none;
+  transition: box-shadow 0.18s, background 0.2s;
+}
+.noteease-chip.selected, .noteease-chip:focus {
+  background: var(--noteease-accent);
+  color: #fff;
+  border-color: var(--noteease-accent);
+  box-shadow: 0 2px 8px rgba(245,166,35,0.14);
+}
+
+.noteease-content {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.noteease-notes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  justify-content: flex-start;
+}
+
+.noteease-card {
+  background: var(--noteease-secondary);
+  border-radius: 16px;
+  box-shadow: 0 1.5px 7px rgba(50,90,200,0.06);
+  border: 1px solid #e6e6ee;
+  width: 245px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  padding: 18px 20px 14px 20px;
+  transition: box-shadow 0.19s;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+}
+.noteease-card:hover,
+.noteease-card:focus {
+  box-shadow: 0 4px 20px rgba(74,144,226,0.14);
+  border-color: var(--noteease-primary);
+}
+
+.noteease-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.noteease-card-title {
+  font-weight: 600;
+  font-size: 1.08rem;
+  color: var(--noteease-text);
+  margin-right: 8px;
+}
+
+.noteease-card-category {
+  font-size: 0.92rem;
+  padding: 2.5px 9px;
+  background: #f1f4fb;
+  color: var(--noteease-accent);
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.noteease-card-body {
+  color: #5f5e5e;
+  font-size: 1rem;
+  min-height: 32px;
+}
+
+.noteease-empty {
+  color: var(--noteease-muted);
+  font-style: italic;
+  margin: 45px auto 10px auto;
+  text-align: center;
+}
+
+.noteease-fab {
+  position: fixed;
+  right: 32px;
+  bottom: 38px;
+  background: var(--noteease-primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 62px;
+  height: 62px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  box-shadow: 0 6px 25px rgba(74,144,226,0.14);
+  cursor: pointer;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.noteease-fab:hover,
+.noteease-fab:focus {
+  background: var(--noteease-accent);
+  color: #fff;
+  box-shadow: 0 10px 38px rgba(245,166,35,0.17);
+}
+
+.noteease-modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(40,60,110,0.08);
+  backdrop-filter: blur(2px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noteease-modal {
+  background: #fff;
+  color: var(--noteease-text);
+  padding: 28px 24px 18px 24px;
+  border-radius: 20px;
+  box-shadow: 0 8px 38px rgba(80,120,190,0.22);
+  min-width: 340px;
+  max-width: 92vw;
+  max-height: 90vh;
+  position: relative;
+}
+
+.noteease-modal h3 {
+  margin: 0 0 20px 0;
+  color: var(--noteease-primary);
+  letter-spacing: 0.01em;
+}
+
+.noteease-modal-title {
+  width: 100%;
+  font-size: 1.19rem;
+  font-weight: 600;
+  padding: 9px 14px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1.2px solid #e4eaf4;
+  outline: none;
+  background: #f9f9fb;
+  color: #222;
+  transition: border 0.17s;
+}
+.noteease-modal-title:focus {
+  border-color: var(--noteease-primary);
+}
+
+.noteease-modal-body {
+  width: 100%;
+  resize: vertical;
+  font-size: 1rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1.1px solid #e6eaea;
+  background: #fafbfc;
+  margin-bottom: 14px;
+  min-height: 70px;
+  color: var(--noteease-text);
+}
+
+.noteease-modal-category-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.noteease-modal-category {
+  font-size: 1rem;
+  padding: 6px 11px;
+  border-radius: 7px;
+  background: #f6f8fe;
+  border: 1.1px solid #dde1ea;
+  color: #3457ad;
+  outline: none;
+  width: 124px;
+  margin-right: 0;
+  transition: border 0.16s;
+}
+.noteease-modal-category:focus,
+.noteease-modal-category:active {
+  border-color: var(--noteease-primary);
+}
+
+.noteease-modal-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+}
+
+.noteease-modal-save {
+  background: var(--noteease-primary);
+  padding: 8px 23px;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.13s;
+}
+.noteease-modal-save:hover {
+  background: #2763b9;
+}
+
+.noteease-modal-delete {
+  background: var(--noteease-accent);
+  padding: 8px 16px;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 4px;
+  transition: background 0.13s;
+}
+.noteease-modal-delete:hover {
+  background: #b5740d;
+}
+
+.noteease-modal-cancel {
+  background: #eceef4;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: 0;
+  transition: background 0.11s, color 0.11s;
+}
+.noteease-modal-cancel:hover {
+  background: #e3e8f3;
+  color: #111;
+}
